@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Relief Request</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="login-container">
+    <h1>Create Relief Request</h1>
+    <div class="login-box">
+        <form id="requestForm">
+            <label>Type of Relief:</label>
+            <select id="reliefType">
+                <option>Food</option>
+                <option>Water</option>
+                <option>Medicine</option>
+                <option>Shelter</option>
+            </select>
+            <input type="text" id="district" placeholder="District">
+            <input type="text" id="ds" placeholder="Divisional Secretariat">
+            <input type="text" id="gn" placeholder="GN Division">
+            <input type="text" id="contact" placeholder="Contact Person Name">
+            <input type="text" id="phone" placeholder="Contact Number">
+            <input type="text" id="address" placeholder="Address">
+            <input type="number" id="members" placeholder="No. of Family Members">
+            <select id="severity">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+            </select>
+            <textarea id="description" placeholder="Additional info"></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+</div>
+<script src="../js/auth.js"></script>
+</body>
+</html>
