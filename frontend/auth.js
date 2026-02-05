@@ -78,3 +78,42 @@ function editUser(btn){
         alert("User updated!");
     }
 }
+
+function saveStatus(btn) {
+        const row = btn.closest("tr");
+        const statusSelect = row.querySelector("select");
+        alert(`Status for Request ID ${row.cells[0].innerText} updated to "${statusSelect.value}"`);
+
+}
+
+
+
+
+
+
+
+
+
+function deleteRequest(button){
+    if(confirm("Are you sure you want to delete this request?")){
+        // Remove the row from the table
+        let row = button.parentElement.parentElement;
+        row.remove();
+    }
+}
+
+function editRequest(button){
+    let row = button.parentElement.parentElement;
+    let type = row.cells[0].innerText;
+    let district = row.cells[1].innerText;
+    let severity = row.cells[2].innerText; 
+    let newType = prompt("Edit Relief Type:", type);
+    let newDistrict = prompt("Edit District:", district);
+    let newSeverity = prompt("Edit Severity:", severity);
+
+    if(newType && newDistrict && newSeverity){
+        row.cells[0].innerText = newType;
+        row.cells[1].innerText = newDistrict;
+        row.cells[2].innerText = newSeverity;
+    }
+}       

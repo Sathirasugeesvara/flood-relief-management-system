@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>User Dashboard</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
@@ -21,26 +21,41 @@
         <h2>Welcome User 👋</h2>
         <p>You can create and track your relief requests.</p>
     </div>
-
     <div class="card">
-        <h2>My Relief Requests</h2>
-        <table>
-            <tr>
-                <th>Type</th>
-                <th>District</th>
-                <th>Severity</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Food</td>
-                <td>Kandy</td>
-                <td>High</td>
-                <td>Pending</td>
-            </tr>
-        </table>
+    <h2>My Relief Requests</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>District</th>
+            <th>Severity</th>
+            <th>Status</th>
+            <th>Actions</th> <!-- New column for buttons -->
+        </tr>
+        <tr>
+            <td>Food</td>
+            <td>Kandy</td>
+            <td>High</td>
+            <td>Pending</td>
+            <td>
+                <button class="action-btn edit-btn" onclick="editRequest(this)">Edit</button>
+                <button class="action-btn delete-btn" onclick="deleteRequest(this)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Water</td>
+            <td>Colombo</td>
+            <td>Medium</td>
+            <td>Approved</td>
+            <td>
+                <button class="action-btn edit-btn" onclick="editRequest(this)">Edit</button>
+                <button class="action-btn delete-btn" onclick="deleteRequest(this)">Delete</button>
+            </td>
+        </tr>
+    </table>
     </div>
-
 </div>
 
+    
+<script src="../auth.js"></script>
 </body>
 </html>
