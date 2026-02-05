@@ -2,28 +2,54 @@
 <html>
 <head>
     <title>Create Relief Request</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <div class="navbar">
+    <h2>Flood Relief Management System</h2>
+    </div>
 <div class="login-container">
-    <h1>Create Relief Request</h1>
+    <h1>Relief Request Form</h1>
     <div class="login-box">
         <form id="requestForm">
             <label>Type of Relief:</label>
-            <select id="reliefType">
-                <option>Food</option>
-                <option>Water</option>
-                <option>Medicine</option>
-                <option>Shelter</option>
+            <select id="reliefType" required>
+                <option value="" disabled selected hidden>Relief Type</option>
+                <option value="Food">Food</option>
+                <option value="Water">Water</option>
+                <option value="Medicine">Medicine</option>
             </select>
-            <input type="text" id="district" placeholder="District">
+            
+            <input
+            type="text"
+             id="district"
+            placeholder="District"
+            list="districtList"
+            readonly
+            onclick="this.removeAttribute('readonly'); this.focus();"/>
+
+            <datalist id="districtList">
+            <option value="Colombo">
+            <option value="Gampaha">
+            <option value="Kalutara">
+            <option value="Kandy">
+            <option value="Galle">
+            <option value="Matara">
+            <option value="Jaffna">
+            <option value="Kurunegala">
+            <option value="Anuradhapura">
+            <option value="Ratnapura">
+            <option value="Badulla">
+            </datalist>
+
             <input type="text" id="ds" placeholder="Divisional Secretariat">
             <input type="text" id="gn" placeholder="GN Division">
             <input type="text" id="contact" placeholder="Contact Person Name">
             <input type="text" id="phone" placeholder="Contact Number">
             <input type="text" id="address" placeholder="Address">
             <input type="number" id="members" placeholder="No. of Family Members">
-            <select id="severity">
+            <select id="severity" required>
+                <option value="" disabled selected hidden>Severity</option>
                 <option>Low</option>
                 <option>Medium</option>
                 <option>High</option>
