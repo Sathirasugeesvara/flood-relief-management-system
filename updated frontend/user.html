@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+
+  <header>
+    <h1>Flood Relief Management</h1>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="request.html">Requests</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <div class="card">
+      <h2>Create Relief Request</h2>
+      <a href="request.html">
+        <button class="btn btn-primary" >+ New Request</button>
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>My Relief Requests</h2>
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>District</th>
+          <th>Severity</th>
+          <th>Actions</th>
+        </tr>
+        <tr>
+          <td>Food</td>
+          <td>Colombo</td>
+          <td><span class="status high">High</span></td>
+          <td>
+            <button class="btn btn-warning" onclick="editRequest(this)">Edit</button>
+            <button class="btn btn-danger" onclick="deleteRequest(this)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Water</td>
+          <td>Gampaha</td>
+          <td><span class="status medium">Medium</span></td>
+          <td>
+            <button class="btn btn-warning" onclick="editRequest(this)">Edit</button>
+            <button class="btn btn-danger" onclick="deleteRequest(this)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  </div>
+
+  <footer>
+    <br>
+    © 2026 Flood Relief Management System - Sri Lanka
+    <br><br>
+  </footer>
+<script src="js/script.js"></script>
+</body>
+</html>

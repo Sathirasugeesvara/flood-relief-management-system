@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+<div class="card" style="max-width:700px;margin:40px auto;">
+      <h2 style="text-align: center;">Create Relief Request</h2>
+      <p style="color:#6B7280;">Fill the form below to request flood relief assistance</p>
+
+      <form>
+        <label>Type of Relief</label>
+        <select id="reliefType" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;">
+          <option>Select relief type</option>
+          <option>Food</option>
+          <option>Water</option>
+          <option>Medicine</option>
+          <option>Shelter</option>
+        </select>
+
+        <label>District</label>
+        <input type="text" placeholder="Enter district" id="district" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+
+        <label>Divisional Secretariat</label>
+        <input type="text" placeholder="Enter divisional secretariat" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+
+        <label>GN Division</label>
+        <input type="text" placeholder="Enter GN division" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+
+        <label>Contact Person Name</label>
+        <input type="text" placeholder="Enter contact person name" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+
+        <label>Contact Number</label>
+        <input type="text"placeholder="07XXXXXXXX" id="contactNumber" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+
+        <label>Address</label>
+        <textarea placeholder="Enter address" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;"></textarea>
+
+        <label>Number of Family Members</label>
+        <input type="number" placeholder="e.g. 4" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+
+        <label>Flood Severity Level</label>
+        <select id="severity" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+
+        <label>Description / Special Requirements</label>
+        <textarea placeholder="Any additional information" style="width:100%;padding:10px;margin:8px 0 20px;border-radius:6px;border:1px solid #D1D5DB;"></textarea>
+
+        <button onclick="submitRequest(this)" class="btn btn-primary" style="width:100%;">Submit Request</button>
+      </form>
+    </div>
+
+    <footer>
+      <br>
+    © 2026 Flood Relief Management System – Sri Lanka
+    <br><br>
+  </footer>
+  
+   <script src="js/script.js"></script>
+</body>
+</html>
