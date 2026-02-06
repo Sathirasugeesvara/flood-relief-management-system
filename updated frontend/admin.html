@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+
+    <div class="card">
+      <h2>Admin Dashboard Overview</h2>
+      <p>Quick summary of the system status</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div class="card" style="background:#EFF6FF;">
+          <h3>Total Users</h3>
+          <p style="font-size:28px;font-weight:bold;">125</p>
+        </div>
+        <div class="card" style="background:#FEF3C7;">
+          <h3>High Severity</h3>
+          <p style="font-size:28px;font-weight:bold;">42</p>
+        </div>
+        <div class="card" style="background:#DCFCE7;">
+          <h3>Food Requests</h3>
+          <p style="font-size:28px;font-weight:bold;">60</p>
+        </div>
+        <div class="card" style="background:#FEE2E2;">
+          <h3>Medicine Requests</h3>
+          <p style="font-size:28px;font-weight:bold;">18</p>
+        </div>
+        <div class="card" style="background:#8cd3ea;">
+          <h3>Water Requests</h3>
+          <p style="font-size:28px;font-weight:bold;">23</p>
+        </div>
+        <div class="card" style="background:#d1a8f0;">
+          <h3>Shelter Requests</h3>
+          <p style="font-size:28px;font-weight:bold;">9</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Registered Users</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>District</th>
+          <th>Actions</th>
+        </tr>
+        <tr>
+          <td>Nimal Perera</td>
+          <td>User</td>
+          <td>Colombo</td>
+          <td>
+            <a href="user.html">
+            <button class="btn btn-primary">View</button></a>
+            <button class="btn btn-danger" onclick="deleteUser(this)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Saman Kumara</td>
+          <td>User</td>
+          <td>Galle</td>
+          <td>
+            <a href="user.html">
+            <button class="btn btn-primary">View</button></a>
+            <button class="btn btn-danger" onclick="deleteUser(this)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <footer>
+        <br>
+    © 2026 Flood Relief Management System - Sri Lanka
+    <br><br>
+  </footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
