@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Reports</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <br><br>
+
+  <div class="card" style="max-width:800px;margin:0 auto;padding:20px;">
+    <h2>System Reports & Filters</h2>
+
+    <form id="reportFilterForm">
+
+      <label for="filterDistrict">Filter by District:</label>
+      <select id="filterDistrict" style="padding:8px;border-radius:6px;width:100%;margin-bottom:16px;">
+        <option value="">All</option>
+        <option value="colombo">Colombo</option>
+        <option value="gampaha">Gampaha</option>
+        <option value="kalutara">Kalutara</option>
+        <option value="kandy">Kandy</option>
+        <option value="matale">Matale</option>
+        <option value="nuwara eliya">Nuwara Eliya</option>
+        <option value="galle">Galle</option>
+        <option value="matara">Matara</option>
+        <option value="hambantota">Hambantota</option>
+        <option value="jaffna">Jaffna</option>
+        <option value="kilinochchi">Kilinochchi</option>
+        <option value="mannar">Mannar</option>
+        <option value="mullaitivu">Mullaitivu</option>
+        <option value="vavuniya">Vavuniya</option>
+        <option value="trincomalee">Trincomalee</option>
+        <option value="batticaloa">Batticaloa</option>
+        <option value="ampara">Ampara</option>
+        <option value="kurunegala">Kurunegala</option>
+        <option value="puttalam">Puttalam</option>
+        <option value="anuradhapura">Anuradhapura</option>
+        <option value="polonnaruwa">Polonnaruwa</option>
+        <option value="badulla">Badulla</option>
+        <option value="monaragala">Monaragala</option>
+        <option value="ratnapura">Ratnapura</option>
+        <option value="kegalle">Kegalle</option>
+      </select>
+
+      <label for="filterReliefType">Filter by Relief Type:</label>
+      <select id="filterReliefType" style="padding:8px;border-radius:6px;width:100%;margin-bottom:16px;">
+        <option value="">All</option>
+        <option value="food">Food</option>
+        <option value="water">Water</option>
+        <option value="medicine">Medicine</option>
+        <option value="shelter">Shelter</option>
+      </select>
+
+    </form>
+
+    <div id="reportResults" class="card" style="margin-top:20px; padding:10px;">
+      <p style="color:#6B7280;">Filtered reports will appear here.</p>
+    </div>
+
+  </div>
+  <br><br>
+
+
+  <br><br><br>
+  <div style="display:flex; gap:12px; margin-bottom:20px;">
+  
+  <button type="button" onclick="goBack()" class="btnrepo">
+    ⬅ Back
+  </button>
+
+  <button type="button" onclick="printReport()" class="btnrepo">
+    🖨 Print Report
+  </button>
+
+</div>
+
+
+  <footer style="text-align:center;">
+    <br>
+    © 2026 Flood Relief Management System – Sri Lanka
+    <br><br>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
