@@ -4,25 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User page</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="page">
 
   <header>
     <h1>Flood Relief Management</h1>
     <nav>
-      <a href="#">Dashboard</a>
       <a href="request.html">Requests</a>
-      <a href="login.html">Logout</a>
+      <a href="login.html" id="logoutBtn">Logout</a>
     </nav>
   </header>
 
   <div class="card">
       <h2>Create Relief Request</h2>
-      <a href="request.html">
-        <button class="btn btn-primary" >+ New Request</button>
-      </a>
+      <button class="btn btn-primary" id="newRequestBtn">+ New Request</button>
     </div>
 
     <div class="card">
@@ -39,8 +35,8 @@
           <td>Colombo</td>
           <td><span class="status high">High</span></td>
           <td>
-            <button class="btn btn-warning" onclick="editRequest(this)">Edit</button>
-            <button class="btn btn-danger" onclick="deleteRequest(this)">Delete</button>
+            <button class="btn btn-warning edit-btn">Edit</button>
+            <button class="btn btn-danger delete-btn">Delete</button>
           </td>
         </tr>
         <tr>
@@ -48,19 +44,18 @@
           <td>Gampaha</td>
           <td><span class="status medium">Medium</span></td>
           <td>
-            <button class="btn btn-warning" onclick="editRequest(this)">Edit</button>
-            <button class="btn btn-danger" onclick="deleteRequest(this)">Delete</button>
+            <button class="btn btn-warning edit-btn">Edit</button>
+            <button class="btn btn-danger delete-btn">Delete</button>
           </td>
         </tr>
       </table>
     </div>
 
   </div>
-  </div>
 
   <footer>
     <br>
-    © 2026 Flood Relief Management System - Sri Lanka
+    © 2026 Flood Relief Management System – Sri Lanka
     <br><br>
   </footer>
 <script src="js/script.js"></script>

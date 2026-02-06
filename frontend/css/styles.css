@@ -1,0 +1,101 @@
+:root {
+      --primary-blue: #123A8A;
+      --primary-teal: #0D9488;
+      --danger-red: #DC2626;
+      --warning-orange: #F59E0B;
+      --success-green: #16A34A;
+      --bg-light: #F3F4F6;
+      --text-dark: #374151;
+      --white: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { margin: 0; background: var(--bg-light); color: var(--text-dark); }
+
+    header {
+      background: var(--primary-blue);
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 16px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container { padding: 24px; }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card h2 { margin-top: 0; }
+
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-primary { background: var(--primary-teal); color: white; }
+    .btn-danger { background: var(--danger-red); color: white; }
+    .btn-warning { background: var(--warning-orange); color: white; }
+
+    .btnrepo {
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background-color: #2563EB;
+      color: white;
+      font-size: 14px;
+    }
+
+    .btnrepo:hover {
+      background-color: #1D4ED8;
+    }
+
+
+    .status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .low { background: #A7F3D0; }
+    .medium { background: #FDE68A; }
+    .high { background: #FCA5A5; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    th { background: #E5E7EB; }
+
+    footer {
+      text-align: center;
+      padding: 12px;
+      background: #E5E7EB;
+      font-size: 14px;
+    }
