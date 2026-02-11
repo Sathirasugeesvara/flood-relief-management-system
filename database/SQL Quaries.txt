@@ -29,3 +29,21 @@ CREATE TABLE requests (
         REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+
+//add an admin to the database for test
+INSERT INTO users (full_name, email, password, role)
+VALUES (
+    'Admin Sathira',
+    'adminsathira@gmail.com',
+    'adminsathira',
+    'admin'
+);
+
+
+//add requests to the database to test
+INSERT INTO requests 
+(user_id, relief_type, district, divisional_secretariat, gn_division, contact_name, contact_number, address, family_members, severity, description)
+VALUES
+(1, 'Food', 'Colombo', 'Colombo DS', 'GN 01', 'Test Person', '0712345678', 'Colombo Address', 4, 'High', 'Test request');
+
