@@ -14,7 +14,7 @@
         <h1> Flood Relief Management System</h1>
         <p style="font-size: 20px;">Helping communities stay safe and recover faster</p>
        
-        <a href="login.html" class="btn">Get Started</a>
+        <a href="login.php" class="btn">Get Started</a>
         <br><br><br><br>
         <p style="font-size: 20px;">© 2026 Flood Relief Management System – Sri Lanka</p>
 
