@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
 <header>
   <h1>Welcome, <?php echo $full_name; ?></h1>
   <nav>
-    <a href="request.php">Create Request</a>
+    <a href="request.html">Create Request</a>
     <a href="../backend/logout.php">Logout</a>
   </nav>
 </header>
