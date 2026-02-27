@@ -12,46 +12,46 @@
       <h2>Create Relief Request</h2>
       <p style="color:#6B7280;">Fill the form below to request flood relief assistance</p>
 
-      <form id="requestForm">
+      <form action="../backend/requestGetDB.php" method="POST">
         <label>Type of Relief</label>
-        <select id="reliefType" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;">
-          <option value="">Select relief type</option>
-          <option value="food">Food</option>
-          <option value="water">Water</option>
-          <option value="medicine">Medicine</option>
-          <option value="shelter">Shelter</option>
+        <select id="reliefType" name="reliefType" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;">
+          <option value="Food">Food</option>
+          <option value="Water">Water</option>
+          <option value="Medicine">Medicine</option>
+          <option value="Shelter">Shelter</option>
+
         </select>
 
         <label>District</label>
-        <input id="district" type="text" placeholder="Enter district" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+        <input id="district" name="district" type="text" placeholder="Enter district" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
 
         <label>Divisional Secretariat</label>
-        <input id="divsecre" type="text" placeholder="Enter divisional secretariat" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+        <input id="divsecre" name="divsecre" type="text" placeholder="Enter divisional secretariat" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
 
         <label>GN Division</label>
-        <input id="gndevision" type="text" placeholder="Enter GN division" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+        <input id="gndevision" name="gndevision" type="text" placeholder="Enter GN division" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
 
         <label>Contact Person Name</label>
-        <input id="conname" type="text" placeholder="Enter contact person name" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+        <input id="conname" name="conname" type="text" placeholder="Enter contact person name" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
 
         <label>Contact Number</label>
-        <input id="number" type="text" placeholder="07XXXXXXXX" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+        <input id="number" name="number"   type="text" placeholder="07XXXXXXXX" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
 
         <label>Address</label>
-        <textarea id="address" placeholder="Enter address" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;"></textarea>
+        <textarea id="address" name="address" placeholder="Enter address" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;"></textarea>
 
         <label>Number of Family Members</label>
-        <input id="numofmembers" type="number" placeholder="e.g. 4" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
+        <input id="numofmembers" name="numofmembers" type="number" placeholder="e.g. 4" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;" />
 
         <label>Flood Severity Level</label>
-        <select id="severity" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;">
+        <select id="severity" name="severity" style="width:100%;padding:10px;margin:8px 0 14px;border-radius:6px;border:1px solid #D1D5DB;">
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
 
         <label>Description / Special Requirements</label>
-        <textarea id="description" placeholder="Any additional information" style="width:100%;padding:10px;margin:8px 0 20px;border-radius:6px;border:1px solid #D1D5DB;"></textarea>
+        <textarea id="description" name="description" placeholder="Any additional information" style="width:100%;padding:10px;margin:8px 0 20px;border-radius:6px;border:1px solid #D1D5DB;"></textarea>
 
         <button type="submit" class="btn btn-primary" style="width:100%;">Submit Request</button>
       </form>

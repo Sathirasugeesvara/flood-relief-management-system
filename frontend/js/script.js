@@ -81,3 +81,44 @@ function viewUser() {
 function logout() {
   window.location.href = "login.html";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const table = document.getElementById("requestTable");
+  if (!table) return;
+
+  fetch("/flood-relief-management-system/backend/get_user_requests.php")
+    .then(response => response.json())
+    .then(data => {
+
+      let rows = "";
+
+      data.forEach(request => {
+
+        rows += `
+          <tr>
+            <td>${request.relief_type}</td>
+            <td>${request.district}</td>
+            <td>${request.severity}</td>
+            <td>
+              <button onclick="editRequest(${request.id})">Edit</button>
+              <button  onclick="deleteRequest(${request.id})" style="background-color: #dc2626;">Delete</button>
+            </td>
+          </tr>
+        `;
+      });
+
+      table.innerHTML = rows;
+    });
+});
+
+
+function editRequest(id) {
+  window.location.href = "edit_request.php?id=" + id;
+}
+
+function deleteRequest(id) {
+  if (confirm("Are you sure you want to delete this request?")) {
+    window.location.href = "../backend/delete_request.php?id=" + id;
+  }
+}
