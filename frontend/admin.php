@@ -2,32 +2,32 @@
 session_start();
 include("../backend/db.php");
 
-// Protect page (Admin only)
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     header("Location: login.php");
     exit();
 }
 
-/* ===== Dashboard Counts ===== */
+/* ===============================
+   DASHBOARD COUNTS
+================================= */
 
-// Total users
-$total_users_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM users");
-$total_users = mysqli_fetch_assoc($total_users_query)['total'];
+$total_users = mysqli_fetch_assoc(
+    mysqli_query($conn,"SELECT COUNT(*) AS t FROM users")
+)['t'];
 
-// High severity requests
-$high_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE severity='High'");
-$high_severity = mysqli_fetch_assoc($high_query)['total'];
+$high_severity = mysqli_fetch_assoc(
+    mysqli_query($conn,"SELECT COUNT(*) AS t FROM requests WHERE severity='High'")
+)['t'];
 
-// Food requests
-$food_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE relief_type='Food'");
-$food_requests = mysqli_fetch_assoc($food_query)['total'];
+$food_requests = mysqli_fetch_assoc(
+    mysqli_query($conn,"SELECT COUNT(*) AS t FROM requests WHERE relief_type='Food'")
+)['t'];
 
-// Medicine requests
-$medicine_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM requests WHERE relief_type='Medicine'");
-$medicine_requests = mysqli_fetch_assoc($medicine_query)['total'];
+$medicine_requests = mysqli_fetch_assoc(
+    mysqli_query($conn,"SELECT COUNT(*) AS t FROM requests WHERE relief_type='Medicine'")
+)['t'];
 
-// Get all users
-$users_result = mysqli_query($conn, "SELECT * FROM users");
+$users = mysqli_query($conn,"SELECT * FROM users ORDER BY created_at DESC");
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,14 @@ $users_result = mysqli_query($conn, "SELECT * FROM users");
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard</title>
+
+  <!-- Main Styles -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Admin Specific Styles -->
+  <link rel="stylesheet" href="css/admin.css">
 </head>
+
 <body>
 
 <header>
@@ -46,83 +52,120 @@ $users_result = mysqli_query($conn, "SELECT * FROM users");
   </nav>
 </header>
 
-<div class="container">
+<div class="admin-container">
 
-  <!-- Dashboard Overview -->
-  <div class="card">
-    <h2>System Overview</h2>
+  <!-- ===============================
+       SYSTEM OVERVIEW
+  ================================= -->
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+  <h2 class="admin-title">System Overview</h2>
 
-      <div class="card" style="background:#EFF6FF;">
-        <h3>Total Users</h3>
-        <p style="font-size:28px;font-weight:bold;">
-          <?php echo $total_users; ?>
-        </p>
-      </div>
+  <div class="overview-grid">
 
-      <div class="card" style="background:#FEF3C7;">
-        <h3>High Severity</h3>
-        <p style="font-size:28px;font-weight:bold;">
-          <?php echo $high_severity; ?>
-        </p>
-      </div>
-
-      <div class="card" style="background:#DCFCE7;">
-        <h3>Food Requests</h3>
-        <p style="font-size:28px;font-weight:bold;">
-          <?php echo $food_requests; ?>
-        </p>
-      </div>
-
-      <div class="card" style="background:#FEE2E2;">
-        <h3>Medicine Requests</h3>
-        <p style="font-size:28px;font-weight:bold;">
-          <?php echo $medicine_requests; ?>
-        </p>
-      </div>
-
+    <div class="overview-card">
+      <h3>Total Users</h3>
+      <div class="overview-number"><?php echo $total_users; ?></div>
     </div>
+
+    <div class="overview-card">
+      <h3>High Severity Requests</h3>
+      <div class="overview-number"><?php echo $high_severity; ?></div>
+    </div>
+
+    <div class="overview-card">
+      <h3>Food Requests</h3>
+      <div class="overview-number"><?php echo $food_requests; ?></div>
+    </div>
+
+    <div class="overview-card">
+      <h3>Medicine Requests</h3>
+      <div class="overview-number"><?php echo $medicine_requests; ?></div>
+    </div>
+
   </div>
 
-  <!-- Registered Users Table -->
+
+  <!-- ===============================
+       FILTERED REPORT SECTION
+  ================================= -->
+
+  <div class="card">
+    <h2>Generate Filtered Report</h2>
+
+    <div class="filter-section">
+      <select id="area">
+        <option value="">Select Area</option>
+        <option value="Kalutara">Kalutara</option>
+        <option value="Colombo">Colombo</option>
+      </select>
+
+      <select id="type">
+        <option value="">Select Relief Type</option>
+        <option value="Food">Food</option>
+        <option value="Water">Water</option>
+        <option value="Medicine">Medicine</option>
+        <option value="Shelter">Shelter</option>
+      </select>
+
+      <button class="btnrepo" onclick="generateReport()">Generate Report</button>
+    </div>
+
+    <div id="reportResult"></div>
+  </div>
+
+
+  <!-- ===============================
+       REGISTERED USERS TABLE
+  ================================= -->
+
   <div class="card">
     <h2>Registered Users</h2>
 
-    <table border="1" width="100%" cellpadding="8">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Actions</th>
-      </tr>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-      <?php
-      while ($user = mysqli_fetch_assoc($users_result)) {
-          echo "<tr>";
-          echo "<td>" . $user['full_name'] . "</td>";
-          echo "<td>" . $user['email'] . "</td>";
-          echo "<td>" . $user['role'] . "</td>";
-          echo "<td>
-                  <a href='../backend/delete_user.php?id=" . $user['id'] . "' 
-                     onclick=\"return confirm('Are you sure you want to delete this user?')\">
-                     Delete
-                  </a>
-                </td>";
-          echo "</tr>";
-      }
-      ?>
+      <tbody>
+      <?php while($u = mysqli_fetch_assoc($users)) { ?>
+        <tr>
+          <td><?php echo $u['full_name']; ?></td>
+          <td><?php echo $u['email']; ?></td>
+          <td>
+            <span class="status <?php echo $u['role']=='admin'?'medium':'low'; ?>">
+              <?php echo ucfirst($u['role']); ?>
+            </span>
+          </td>
+          <td>
+            <button class="action-btn view-btn"
+              onclick="window.location.href='user_details.php?id=<?php echo $u['id']; ?>'">
+              View
+            </button>
 
+            <button class="action-btn delete-btn"
+              onclick="if(confirm('Delete this user?')) window.location.href='../backend/delete_user.php?id=<?php echo $u['id']; ?>'">
+              Delete
+            </button>
+          </td>
+        </tr>
+      <?php } ?>
+      </tbody>
     </table>
   </div>
 
 </div>
 
 <footer>
-  <br>
   © 2026 Flood Relief Management System – Sri Lanka
-  <br><br>
 </footer>
+
+<!-- Admin JS -->
+<script src="js/admin.js"></script>
 
 </body>
 </html>
