@@ -17,14 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $severity = $_POST['severity'];
     $description = $_POST['description'];
 
-    $sql = "INSERT INTO requests (user_id, relief_type, district, divisional_secretariat,gn_division, contact_name, contact_number, address,family_members, severity, description)
-    VALUES ($user_id,'$reliefType','$district','$divsecre','$gndevision','$conname','$number','$address',$numofmembers,'$severity','$description'
-    )";
+    $sql = "INSERT INTO requests
+    (user_id, relief_type, district, divisional_secretariat, gn_division, contact_name, contact_number, address, family_members, severity, description)
+    VALUES
+    ('$user_id','$reliefType','$district','$divsecre','$gndevision','$conname','$number','$address','$numofmembers','$severity','$description')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Request submitted successfully!";
+        echo '<script>
+        alert("Request submitted successfully!");
+        window.location.href="../frontend/user.php";
+        </script>';
     } else {
-        echo "Error: " . $conn->error;
+        echo '<script>
+        alert("Error submitting request");
+        window.location.href="../frontend/user.php";
+        </script>';
     }
 
     $conn->close();
