@@ -2,25 +2,23 @@ function showMessage(message) {
   alert(message);
 }
 
-
 // LOGIN
 function handleLogin() {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
   const role = document.getElementById("loginRole").value;
 
-  if (email === "" || password === "") {
+  if (!email || !password) {
     showMessage("Please fill all fields");
     return;
   }
 
   if (role === "Admin") {
-    window.location.href = "admin.html";
+    window.location.href = "admin.php";
   } else {
-    window.location.href = "user.html";
+    window.location.href = "user.php";
   }
 }
-
 
 // REGISTER
 function handleRegister() {
@@ -29,7 +27,7 @@ function handleRegister() {
   const password = document.getElementById("regPassword").value;
   const confirm = document.getElementById("regConfirm").value;
 
-  if (name === "" || email === "" || password === "" || confirm === "") {
+  if (!name || !email || !password || !confirm) {
     showMessage("All fields are required");
     return;
   }
@@ -40,9 +38,8 @@ function handleRegister() {
   }
 
   showMessage("Registration successful");
-  window.location.href = "login.html";
+  window.location.href = "login.php";
 }
-
 
 // CREATE REQUEST
 function submitRequest() {
@@ -50,51 +47,41 @@ function submitRequest() {
   const district = document.getElementById("district").value;
   const severity = document.getElementById("severity").value;
 
-  if (type === "" || district === "") {
+  if (!type || !district) {
     showMessage("Please complete required fields");
-    return;
+    return false;
   }
 
-  showMessage("Relief request submitted successfully");
+  return true; // submit the form
 }
 
-// USER ACTIONS
-function deleteRequest() {
+// DELETE REQUEST
+function confirmDelete(id) {
   if (confirm("Are you sure you want to delete this request?")) {
-    showMessage("Request deleted");
+    window.location.href = "../backend/delete_request.php?id=" + id;
   }
 }
 
-// ADMIN ACTIONS
-function deleteUser() {
-  if (confirm("Delete this user?")) {
-    showMessage("User deleted");
-  }
+// EDIT REQUEST
+function editRequest(id) {
+  window.location.href = "edit_request.php?id=" + id;
 }
-
-function viewUser() {
-  showMessage("User details opened");
-}
-
 
 // LOGOUT
 function logout() {
-  window.location.href = "login.html";
+  window.location.href = "login.php";
 }
 
+// Fetch user requests dynamically (optional)
 document.addEventListener("DOMContentLoaded", function () {
-
   const table = document.getElementById("requestTable");
   if (!table) return;
 
-  fetch("/flood-relief-management-system/backend/get_user_requests.php")
-    .then(response => response.json())
+  fetch("../backend/get_user_requests.php")
+    .then(res => res.json())
     .then(data => {
-
       let rows = "";
-
       data.forEach(request => {
-
         rows += `
           <tr>
             <td>${request.relief_type}</td>
@@ -102,23 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
             <td>${request.severity}</td>
             <td>
               <button onclick="editRequest(${request.id})">Edit</button>
-              <button  onclick="deleteRequest(${request.id})" style="background-color: #dc2626;">Delete</button>
+              <button onclick="confirmDelete(${request.id})" style="background-color:#dc2626;">Delete</button>
             </td>
-          </tr>
-        `;
+          </tr>`;
       });
-
       table.innerHTML = rows;
     });
 });
-
-
-function editRequest(id) {
-  window.location.href = "edit_request.php?id=" + id;
-}
-
-function deleteRequest(id) {
-  if (confirm("Are you sure you want to delete this request?")) {
-    window.location.href = "../backend/delete_request.php?id=" + id;
-  }
-}
