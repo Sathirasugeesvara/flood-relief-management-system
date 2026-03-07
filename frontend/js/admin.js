@@ -21,3 +21,14 @@ function generateReport() {
       console.error("Error generating report:", error);
     });
 }
+
+
+function deleteUser(id) {
+
+    if(confirm("Delete this request?")){
+
+        window.location.href = "../backend/delete_request.php?id=" + id;
+
+    }
+
+}

@@ -1,10 +1,15 @@
 <?php
 include("db.php");
 
-$id = $_GET['id'];
+if(isset($_GET['id'])){
 
-mysqli_query($conn,"DELETE FROM users WHERE id='$id'");
+    $id = $_GET['id'];
 
-header("Location: ../frontend/admin_dashboard.php");
+    $sql = "DELETE FROM users WHERE id='$id'";
+    mysqli_query($conn,$sql);
+
+}
+
+header("Location: ../frontend/admin.php");
 exit();
 ?>

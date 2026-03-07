@@ -65,12 +65,7 @@ function deleteRequest() {
   }
 }
 
-// ADMIN ACTIONS
-function deleteUser() {
-  if (confirm("Delete this user?")) {
-    showMessage("User deleted");
-  }
-}
+
 
 function viewUser() {
   showMessage("User details opened");
@@ -118,7 +113,11 @@ function editRequest(id) {
 }
 
 function deleteRequest(id) {
-  if (confirm("Are you sure you want to delete this request?")) {
-    window.location.href = "../backend/delete_request.php?id=" + id;
-  }
-}
+
+    if(confirm("Delete this request?")){
+        window.location.href = "../backend/delete_request.php?id=" + id;
+    }
+} 
+
+
+

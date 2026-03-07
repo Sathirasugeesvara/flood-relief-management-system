@@ -18,9 +18,7 @@ if (!isset($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-/* ===============================
-   FETCH DATA
-================================= */
+
 
 $user_query = mysqli_query($conn, "SELECT * FROM users WHERE id=$id");
 $user = mysqli_fetch_assoc($user_query);
