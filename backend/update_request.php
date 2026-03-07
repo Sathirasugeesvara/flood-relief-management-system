@@ -11,6 +11,7 @@ $number = $_POST['number'];
 $address = $_POST['address'];
 $numofmembers = $_POST['numofmembers'];
 $severity = $_POST['severity'];
+$description = $_POST['description']; 
 
 $sql = "UPDATE requests SET
     relief_type='$reliefType',
@@ -21,7 +22,8 @@ $sql = "UPDATE requests SET
     contact_number='$number',
     address='$address',
     family_members='$numofmembers',
-    severity='$severity'
+    severity='$severity',
+    description='$description'
 WHERE id='$id'";
 
 mysqli_query($conn, $sql);
