@@ -7,14 +7,23 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'user') {
     exit();
 }
 
-$id = intval($_GET['id']); // sanitize input
+$id = intval($_GET['id']);
 $user_id = $_SESSION['user_id'];
 
 $sql = "DELETE FROM requests WHERE id=? AND user_id=?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "ii", $id, $user_id);
-mysqli_stmt_execute($stmt);
 
-header("Location: ../frontend/user.php");
-exit();
+if(mysqli_stmt_execute($stmt)){
+    echo "<script>
+        alert('✅ Request deleted successfully.');
+        window.location.href='../frontend/user.php';
+    </script>";
+} else {
+    echo "<script>
+        alert('❎ Error deleting request.');
+        window.location.href='../frontend/user.php';
+    </script>";
+}
+
 ?>

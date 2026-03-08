@@ -26,8 +26,15 @@ $sql = "UPDATE requests SET
     description='$description'
 WHERE id='$id'";
 
-mysqli_query($conn, $sql);
-
-header("Location: ../frontend/user.php");
-exit();
+if(mysqli_query($conn, $sql)){
+    echo "<script>
+        alert('✅ Request updated successfully.');
+        window.location.href='../frontend/user.php';
+    </script>";
+} else {
+    echo "<script>
+        alert('❎ Error updating request.');
+        window.location.href='../frontend/user.php';
+    </script>";
+}
 ?>

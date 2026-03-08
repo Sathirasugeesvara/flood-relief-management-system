@@ -24,12 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         echo '<script>
-        alert("Request submitted successfully!");
+        alert("✅ Request submitted successfully!");
         window.location.href="../frontend/user.php";
         </script>';
     } else {
         echo '<script>
-        alert("Error submitting request");
+        alert("❎ Error submitting request");
         window.location.href="../frontend/user.php";
         </script>';
     }
