@@ -1,5 +1,7 @@
 CREATE DATABASE floodRelfManSys_db;
 
+USE floodRelfManSys_db;
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -8,7 +10,6 @@ CREATE TABLE users (
     role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
 
 CREATE TABLE requests (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,20 +31,29 @@ CREATE TABLE requests (
         ON DELETE CASCADE
 );
 
-
-//add an admin to the database for test
+-- Add admins and users
 INSERT INTO users (full_name, email, password, role)
-VALUES (
-    'Admin Sathira',
-    'adminsathira@gmail.com',
-    'adminsathira',
-    'admin'
-);
+VALUES 
+('Admin Sathira', 'adminsathira@gmail.com', 'adminsathira', 'admin'),
+('Admin Hashintha', 'adminhashintha@gmail.com', 'adminhashintha', 'admin'),
 
+('Sathira Sugeesvara', 'sathirasugeesvara@gmail.com', '12345678', 'user'),
+('Kamal Silva', 'hashintha@gmail.com', '12345678', 'user'),
+('Sunil Fernando', 'sunil@gmail.com', 'sunil123', 'user'),
+('Kasuni Madushika', 'kasuni@gmail.com', 'kasuni123', 'user'),
+('Ruwan Kumara', 'ruwan@gmail.com', 'ruwan123', 'user');
 
-//add requests to the database to test
+-- Add requests
 INSERT INTO requests 
 (user_id, relief_type, district, divisional_secretariat, gn_division, contact_name, contact_number, address, family_members, severity, description)
 VALUES
-(1, 'Food', 'Colombo', 'Colombo DS', 'GN 01', 'Test Person', '0712345678', 'Colombo Address', 4, 'High', 'Test request');
-
+(3, 'Food', 'Galle', 'Habaraduwa DS', 'Kathaluwa GN', 'Nimal Perera', '0712345671', 'Kathaluwa, Habaraduwa', 5, 'High', 'Family displaced due to flood'),
+(4, 'Water', 'Matara', 'Matara DS', 'Nupe GN', 'Kamal Silva', '0712345672', 'Nupe, Matara', 4, 'Medium', 'Water sources contaminated'),
+(5, 'Medicine', 'Kalutara', 'Panadura DS', 'Wadduwa GN', 'Sunil Fernando', '0712345673', 'Wadduwa Area', 3, 'High', 'Children suffering from fever'),
+(6, 'Shelter', 'Hambantota', 'Tangalle DS', 'Netolpitiya GN', 'Kasuni Madushika', '0712345674', 'Netolpitiya, Tangalle', 6, 'High', 'House damaged by flood'),
+(3, 'Food', 'Ratnapura', 'Ratnapura DS', 'Mudduwa GN', 'Nimal Perera', '0712345675', 'Mudduwa Area', 5, 'Medium', 'Clothes lost during flood'),
+(4, 'Food', 'Colombo', 'Kolonnawa DS', 'Kolonnawa GN', 'Kamal Silva', '0712345676', 'Kolonnawa Town', 7, 'High', 'Large family affected'),
+(5, 'Water', 'Gampaha', 'Kelaniya DS', 'Peliyagoda GN', 'Sunil Fernando', '0712345677', 'Peliyagoda Area', 4, 'Medium', 'Need clean water'),
+(6, 'Medicine', 'Kegalle', 'Kegalle DS', 'Galigamuwa GN', 'Kasuni Madushika', '0712345678', 'Galigamuwa Area', 3, 'High', 'Medicine for elderly'),
+(3, 'Shelter', 'Matara', 'Akuressa DS', 'Akuressa GN', 'Nimal Perera', '0712345679', 'Akuressa Town', 5, 'High', 'House flooded completely'),
+(4, 'Food', 'Galle', 'Baddegama DS', 'Baddegama GN', 'Kamal Silva', '0712345680', 'Baddegama Area', 6, 'High', 'Food shortage after flood');
