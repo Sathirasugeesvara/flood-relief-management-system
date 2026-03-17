@@ -1,3 +1,4 @@
+<!--to generate report for user entered distric and relief type-->
 <?php
 session_start();
 include("../backend/db.php");

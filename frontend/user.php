@@ -19,7 +19,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Fetch user requests including ID for CRUD actions
 $sql = "SELECT id, relief_type, district, severity, created_at 
         FROM requests 
         WHERE user_id = ?";
@@ -37,7 +36,6 @@ $requests = $requests_result ? $requests_result : [];
   <title>User Page</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* Action button styles */
     .action-btn {
       padding: 6px 12px;
       margin: 2px;

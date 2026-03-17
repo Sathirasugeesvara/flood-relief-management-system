@@ -2,7 +2,7 @@ function showMessage(message) {
   alert(message);
 }
 
-// LOGIN
+// for LOGIN
 function handleLogin() {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
@@ -20,7 +20,7 @@ function handleLogin() {
   }
 }
 
-// REGISTER
+// for REGISTER
 function handleRegister() {
   const name = document.getElementById("regName").value;
   const email = document.getElementById("regEmail").value;
@@ -41,7 +41,7 @@ function handleRegister() {
   window.location.href = "login.php";
 }
 
-// CREATE REQUEST
+// for CREATE REQUEST
 function submitRequest() {
   const type = document.getElementById("reliefType").value;
   const district = document.getElementById("district").value;
@@ -52,17 +52,17 @@ function submitRequest() {
     return false;
   }
 
-  return true; // submit the form
+  return true;
 }
 
-// DELETE REQUEST
+// for DELETE REQUEST
 function confirmDelete(id) {
   if (confirm("Are you sure you want to delete this request?")) {
     window.location.href = "../backend/delete_request.php?id=" + id;
   }
 }
 
-// ADMIN ACTIONS
+// for ADMIN ACTIONS
 function deleteUser() {
   if (confirm("Delete this user?")) {
     showMessage("User deleted");
@@ -73,12 +73,12 @@ function viewUser() {
   showMessage("User details opened");
 }
 
-// LOGOUT
+// forLOGOUT
 function logout() {
   window.location.href = "login.php";
 }
 
-// Fetch user requests dynamically (optional)
+// for Fetch user requests dynamically (optional)
 document.addEventListener("DOMContentLoaded", function () {
   const table = document.getElementById("requestTable");
   if (!table) return;

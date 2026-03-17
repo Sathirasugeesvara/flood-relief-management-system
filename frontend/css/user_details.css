@@ -1,20 +1,14 @@
-/* ===============================
-   USER DETAILS PAGE STYLING
-================================= */
-
 body {
   background: linear-gradient(135deg, #123A8A, #1E3A8A);
   min-height: 100vh;
 }
 
-/* Container */
 .user-details-container {
   max-width: 1000px;
   margin: 50px auto;
   padding: 20px;
 }
 
-/* Card */
 .user-details-card {
   background: #ffffff;
   padding: 35px;
@@ -23,7 +17,6 @@ body {
   border-top: 6px solid #0D9488;
 }
 
-/* Title */
 .user-details-title {
   font-size: 26px;
   font-weight: bold;
@@ -32,7 +25,6 @@ body {
   text-align: center;
 }
 
-/* User Info Grid */
 .user-info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -40,7 +32,6 @@ body {
   margin-bottom: 35px;
 }
 
-/* Info Box */
 .info-box {
   background: #F3F4F6;
   padding: 18px;
@@ -68,7 +59,6 @@ body {
   color: #1F2937;
 }
 
-/* Requests Section */
 .requests-title {
   font-size: 22px;
   margin-bottom: 15px;
@@ -77,7 +67,6 @@ body {
   padding-bottom: 8px;
 }
 
-/* Table Styling */
 .user-requests-table {
   width: 100%;
   border-collapse: collapse;
@@ -106,7 +95,6 @@ body {
   background: #E0F2FE;
 }
 
-/* Severity Colors */
 .user-requests-table td:nth-child(3) {
   font-weight: bold;
 }
@@ -123,7 +111,6 @@ body {
   color: #16A34A;
 }
 
-/* Back Button */
 .back-btn {
   display: inline-block;
   margin-top: 30px;
@@ -141,7 +128,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .user-info-grid {
     grid-template-columns: 1fr;
