@@ -1,6 +1,7 @@
 <?php
 include("db.php");
 
+//to capture input data
 $id = $_POST['id'];
 $reliefType = $_POST['reliefType'];
 $district = $_POST['district'];
@@ -13,6 +14,7 @@ $numofmembers = $_POST['numofmembers'];
 $severity = $_POST['severity'];
 $description = $_POST['description']; 
 
+//update query
 $sql = "UPDATE requests SET
     relief_type='$reliefType',
     district='$district',
@@ -24,7 +26,7 @@ $sql = "UPDATE requests SET
     family_members='$numofmembers',
     severity='$severity',
     description='$description'
-WHERE id='$id'";
+WHERE id='$id'";   //for identifying the specific request to update
 
 if(mysqli_query($conn, $sql)){
     echo "<script>

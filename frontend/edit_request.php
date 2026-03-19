@@ -7,9 +7,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'user') {
     exit();
 }
 
+//to identify loged in user and the request to be edited
 $id = intval($_GET['id']);
 $user_id = $_SESSION['user_id'];
 
+//for loged in user to access only their own requests
 $sql = "SELECT * FROM requests WHERE id=? AND user_id=?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "ii", $id, $user_id);

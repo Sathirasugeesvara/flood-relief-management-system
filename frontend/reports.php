@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 $district = $_GET['district'] ?? '';
 $type = $_GET['type'] ?? '';
 
+//according to Admin selected filters,from requests table (data filter and show in latest order)
 $query = "SELECT r.*, u.full_name
           FROM requests r
           JOIN users u ON r.user_id = u.id

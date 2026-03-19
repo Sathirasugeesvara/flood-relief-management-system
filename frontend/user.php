@@ -19,6 +19,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+//to show requests of logged on user's using user id and assign empty if no data found
 $sql = "SELECT id, relief_type, district, severity, created_at 
         FROM requests 
         WHERE user_id = ?";
@@ -99,7 +100,12 @@ $requests = $requests_result ? $requests_result : [];
 
   </table>
 </div>
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer>
+    <br>
+    © 2026 Flood Relief Management System – Sri Lanka
+    <br><br>
+  </footer>
 <script src="js/script.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 session_start();
 include("db.php");
 
+//if user is not logged in or not a regular user, redirect to login page
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'user') {
     header("Location: ../frontend/login.php");
     exit();

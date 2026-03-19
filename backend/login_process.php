@@ -2,9 +2,11 @@
 session_start();
 include("db.php");
 
+//to get data from the user enter to the login form
 $email = $_POST['email'];
 $password = $_POST['password'];
 
+//if email and password is matched, user login validate, then we can use logged-in user info in next pages
 $sql = "SELECT * FROM users 
         WHERE email='$email' AND password='$password'";
 
